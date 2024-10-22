@@ -20,12 +20,18 @@ function App() {
   }
 
   // event handler reading time
-  const handleMarkAsRead = (time) => {
+  const handleMarkAsRead = (id, time) => {
     // console.log('mark as read', time);
     // setReadingTime(readingTime + time)
     // or
     const newReadingTime = readingTime + time
     setReadingTime(newReadingTime)
+
+    // remove the read blog from bookmark
+    // console.log('remove bookmark', id);
+    const remainingBookmarks = bookmarks.filter(bookmark => bookmark.id !== id)
+    setBookmarks(remainingBookmarks)
+    
     
   }
 
